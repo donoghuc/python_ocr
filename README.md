@@ -36,7 +36,19 @@ __3__
 ```
 (ocr) cas@ubuntu:~/working_dir/python_ocr$ python snip_to_text.py -i mp3_chars.png -o mp3_chars_out.txt
 ```
+![ocr](screenshots/run_ocr.png?raw=true "ocr")
+- you now should have text in the mp3_chars_out.txt (-o param), look it over and make any corrections (for example I remove some random spaces
+__4__
+- now we need to get back to utf-8 chars. 
+- hacky AF solution is to simply print them to console and file as strings in python (so you dont have to deal with the \ escape chars)
+- this is done manually in print_utf.py
+- this also stores output in output file called unicode_out.txt
+```
 (ocr) cas@ubuntu:~/working_dir/python_ocr$ python print_utf.py
 ```
+![unicode](screenshots/unicode.png?raw=true "unicode")
+- finally you can google translate it! 
+![translate](screenshots/translated.png?raw=true "translated")
 
-```
+
+
