@@ -3,13 +3,14 @@ import pytesseract
 import argparse
 import cv2
 import os
+import codecs
 
 
 def parse_args():
     ''' define CLI params'''
     parser = argparse.ArgumentParser(description='Optical Character Recogonition')
     parser.add_argument('-i','--image', help='imput image file (png)', required=True)
-    parser.add_argument('-o','--output', help='output text file')
+    parser.add_argument('-o','--output', help='output text file', required=True)
     return vars(parser.parse_args())
 
 
@@ -22,18 +23,16 @@ def get_text(image_file):
     cv2.imwrite(temp_file, gray)
     text = pytesseract.image_to_string(Image.open(temp_file))
     os.remove(temp_file)
-
     return text
 
 
 def main():
     args = parse_args()
+
     text = get_text(args['image'])
     print(text)
-
-    if args['output']:
-        with open(args['output'], "w") as fo:
-            fo.write(text)
+    with open(args['output'], "w") as fo:
+        fo.write(text)
 
 
 if __name__ == '__main__':
