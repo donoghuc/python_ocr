@@ -15,5 +15,16 @@ sudo apt-get install tesseract-ocr
 ```
 on virutual machine we have python2.7 on windows, I had nothing to do with that config, but i'm really happy we have python interpreter! 
 
+## Example workflow
+__1__
+- On virtual machine I have mounted a USB image with OSFmount. 
+- The filenames are in characters, want to investigate with google translate! 
 
+
+__2__
+- on VM copy the file name into a file called "unicode_raw.txt"
+- run get_utf_codes.py to save out the utf codes for OCR recognition
+
+__3__
+-Use OCR to get a string from the character codes
 
